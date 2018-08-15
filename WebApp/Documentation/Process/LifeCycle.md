@@ -14,11 +14,13 @@ Users have the option to use this parameter immediately, even while in the propo
 
 Download "Proposed" shared parameters at your own risk. If these parameters are deleted or modified during the review process, they may not be compatible with models that previously had the parameters loaded in.
 
-Moderators will review the parameter against the follow criteria:
+Moderators will review the parameter against the following criteria:
+
 - Follows the standard naming convention
 - Is not a duplicate (or similar) parameter to an "Approved" parameter
 - Is assigned the proper DATA TYPE
 - Contains a DESCRIPTION.
+
 A moderator may modify the parameter to ensure compliance with these standards.
 
 If there is some debate over the validity of the parameter, contributors may create a poll to initiate a the voting process.
