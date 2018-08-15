@@ -1,3 +1,5 @@
+<!--- This text is published to http://openrfa.org/documentation/life-cycle-parameter -->
+
 # The Life Cycle of a Parameter
 
 Parameters have three states: Proposed, Approved, and Rejected. This section of the documentation describes each state. Refer to the flow chart below for the process of proposing, approving, and rejecting parameters.
