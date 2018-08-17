@@ -1,3 +1,4 @@
+<!--- This text is published to http://openrfa.org/about -->
 # About OpenRFA
 
 OpenRFA is an initiative started by a group of Building Information Modeling (BIM) professionals who have identified a gap in how we currently share Revit data throughout the industry. Without a single set of standardized shared parameters, it makes it difficult to maintain a single set of data.
@@ -22,4 +23,4 @@ All contributors have the ability to propose new parameters and discuss changes 
 
 If you are interested in contributing to the shared parameters, [register as a contributor](http://openrfa.org/user/register) and start proposing suggestions immediately. As a community, all changes to the shared parameters are reviewed by other experts in the industry who can help vet contributor suggestions.
 
-If you would like apply to become an OpenRFA moderator, [send us a message](http://openrfa.org/contact)
+If you would like apply to become an OpenRFA moderator, [send us a message](http://openrfa.org/contact).
