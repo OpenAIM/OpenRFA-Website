@@ -5,7 +5,7 @@ OpenRFA may seem like a simple online forum/poll, however we are much more than 
 ## The Life Cycle of Shared Parameter
 For a detailed description of how the process of proposing, approving, and rejecting shared parameters, refer to the [OpenRFA documentation](http://openrfa.org/documentation/life-cycle-parameter "The life cycle of a shared parameter.").
 
- ![alt text](https://raw.githubusercontent.com/OpenDBO/OpenRFA/master/WebApp/Documentation/Process/Assets/LifeCycleofaParameter.png "Shared parameter life cycle flow chart")
+ ![alt text](https://raw.githubusercontent.com/OpenDBO/OpenRFA/master/WebsiteContent/Documentation/Assets/LifeCycleofaParameter.png "Shared parameter life cycle flow chart")
 
 ## Implement and Contribute
 The success of any national standard relies on its adoption. OpenRFA needs BIM professionals like you to implement these standards to make this workflow a reality.
