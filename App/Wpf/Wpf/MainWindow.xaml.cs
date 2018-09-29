@@ -24,5 +24,16 @@ namespace Wpf
         {
             InitializeComponent();
         }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            // CSRF is required for login
+            ORfaAuth.GetCsrfToken();
+
+            ORfaAuth.userName = txtUsername.Text;
+            ORfaAuth.userPassword = txtPassword.Password;
+
+            ORfaAuth.LogIn();
+        }
     }
 }

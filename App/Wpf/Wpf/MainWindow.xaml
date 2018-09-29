@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="txtUsername" Height="29" Margin="239,131,237.6,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.572" Width="317" TabIndex="1">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.031"/>
+                    <TranslateTransform X="0.002"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Button x:Name="btnSubmit" Content="Login" HorizontalAlignment="Left" Margin="240,230,0,0" VerticalAlignment="Top" Width="317" Height="33" Click="btnSubmit_Click" TabIndex="3" IsDefault="True"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="317" Margin="240,181,0,0" TabIndex="2"/>
+
     </Grid>
 </Window>
