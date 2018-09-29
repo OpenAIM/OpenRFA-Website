@@ -1,4 +1,4 @@
-#OpenRFA Desktop Application
+# OpenRFA Desktop Application
 
 Developer: Jay Merlan (https://github.com/jmerlan)
 
@@ -8,14 +8,14 @@ The OpenRFA Desktop Application is a desktop application built on C# and WPF. Th
 
 The short-term goal is to build an application using OpenRFA.org's REST API to help with development of the API itself. The hope is that while developing this application, we will build solid code samples as well as API documention.
 
-##API
+## API
 Consider this documentation in a constant state of improvement. We will continue to write-up documentation as we further develop the API.
 
 OpenRFA.org is currently built on Drupal 7.x, therefore the [Services](https://www.drupal.org/project/services) module has been used to implement the REST API.
 
 Note: The API is only currently available on the development server: http://dev.openrfa.org. Please reach out to jmerlan or vdubya for administrator access.
 
-###Endpoints
+### Endpoints
 
 Retrieve CSRF Token
 ```rest/user/token.json```
@@ -23,7 +23,7 @@ Retrieve CSRF Token
 Log in using OpenRFA.org
 ```rest/user/login.json```
 
-###Sample Code
+### Sample Code
 
 Request for Drupal Shared Parameter nodes
 ```csharp
