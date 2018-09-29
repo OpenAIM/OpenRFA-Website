@@ -1,30 +1,25 @@
-﻿<Window x:Class="Wpf.MainWindow"
+<Window x:Class="Wpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="OpenRFA REST Test" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    
     <Grid>
-        <StackPanel x:Name="pnlLogin" HorizontalAlignment="Left" Height="205" Margin="242,115,0,0" VerticalAlignment="Top" Width="308" Visibility="Hidden">
-            <TextBox x:Name="txtUsername" Height="29" Margin="0,0,0,15" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.572" TabIndex="1">
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-0.031"/>
-                        <TranslateTransform X="0.002"/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
-            <PasswordBox x:Name="txtPassword" VerticalAlignment="Top" Height="29" TabIndex="2" Margin="0,0,0,30"/>
-            <Button x:Name="btnSubmit" Content="Login" VerticalAlignment="Top" Height="33" Click="btnSubmit_Click" TabIndex="3" IsDefault="True"/>
-        </StackPanel>
-        <DockPanel LastChildFill="False" Margin="93,40,105.6,32.2">
-            <TextBlock x:Name="txtSidebar" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
-            <TextBlock x:Name="txtRawData" TextWrapping="Wrap" Margin="0,0,0,0.2" HorizontalAlignment="Right" Width="410" DockPanel.Dock="Right" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True"/>
+        <DockPanel LastChildFill="False" Margin="93,40,105,32">
+            <TextBlock x:Name="txtSidebar" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Padding="5"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="txtRawData" TextWrapping="Wrap" Margin="0,0,0,0" HorizontalAlignment="Right" Width="410" DockPanel.Dock="Right" VerticalAlignment="Top" Padding="5"/>
+            </ScrollViewer>
         </DockPanel>
-
+        <StackPanel x:Name="pnlLogin" Height="205" Width="308" Margin="242,115,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
+            <TextBox x:Name="txtUsername" Height="30" Margin="0,0,0,15" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" TabIndex="1" Padding="5"/>
+            <PasswordBox x:Name="txtPassword" Height="30" Margin="0,0,0,30" VerticalAlignment="Top" VerticalContentAlignment="Center" TabIndex="2" Padding="5"/>
+            <Button x:Name="btnSubmit" Content="Login" Height="33" VerticalAlignment="Top" Click="btnSubmit_Click" TabIndex="3" IsDefault="True" Padding="5"/>
+        </StackPanel>
     </Grid>
 </Window>
+
