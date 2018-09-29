@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace Wpf
 {
@@ -20,9 +21,15 @@ namespace Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Temporary field for storing data
+        public static string RawData { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // Show login form
+            pnlLogin.Visibility = Visibility.Visible;
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -34,6 +41,25 @@ namespace Wpf
             ORfaAuth.userPassword = txtPassword.Password;
 
             ORfaAuth.LogIn();
+
+            // Hide login form if session is successful.
+            // NOOB: There is definitely a better way to do this
+            if (ORfaAuth.currentSession.Token.Length > 10)
+            {
+                pnlLogin.Visibility = Visibility.Hidden;
+            }
+
+            // Temporary retrieval of shared parameters
+            SharedParameter.GetParameters();
+
+            // Display current session data in sidebar
+            txtSidebar.Text = "Welcome, " + ORfaAuth.currentSession.User.Name + "!";
+            txtSidebar.Text += "\n" + ORfaAuth.currentSession.User.Mail;
+
+            // Display raw data in text box as indented JSON
+            txtRawData.Text = RawData;
+            //System.Windows.Clipboard.SetText(RawData);
+
         }
     }
 }

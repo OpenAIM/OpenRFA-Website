@@ -16,12 +16,31 @@ namespace Wpf
         public string Token { get; set; }
     }
 
+    public class Session
+    {
+        [JsonProperty("sessid")]
+        public string Id { get; set; }
+
+        [JsonProperty("session_name")]
+        public string Name { get; set; }
+
+        [JsonProperty("token")]
+        public string Token { get; set; }
+
+        [JsonProperty("user")]
+        public User User { get; set; }
+    }
+
     class ORfaAuth
     {
         public static CsrfToken csrfToken = new CsrfToken();
+        public static Session currentSession = new Session();
         public static string userName = string.Empty;
         public static string userPassword = string.Empty;
 
+        /// <summary>
+        /// Retrieves a CSRF token which is required to log in.
+        /// </summary>
         public static void GetCsrfToken()
         {
             string token = string.Empty;
@@ -38,10 +57,14 @@ namespace Wpf
             csrfToken = JsonConvert.DeserializeObject<CsrfToken>(json);
         }
         
+        /// <summary>
+        /// Log in using OpenRFA.org user credentials
+        /// </summary>
+        /// <returns>Data for current logged in session in JSON format.</returns>
         public static string LogIn()
         {
 
-            string sessionData = string.Empty;
+            string json = string.Empty;
 
             //// NOOB: This might be the secure way to login
             //RestClient restClient = new RestClient(OpenRfa.baseUrl)
@@ -60,12 +83,18 @@ namespace Wpf
 
             IRestResponse response = client.Execute(request);
 
-            sessionData = response.Content;
+            json = response.Content;
+
+            currentSession = JsonConvert.DeserializeObject<Session>(json);
 
             // TEMP: Show session data
-            MessageBox.Show(sessionData, "Session Data");
+            //MessageBox.Show(currentSession.Token, "Current Session Token");
+            //MessageBox.Show(json, "Session Data");
 
-            return sessionData;
+            //// Copy raw session data to clipboard
+            //Clipboard.SetText(json);
+
+            return json;
         }
     }
 }

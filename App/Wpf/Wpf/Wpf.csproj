@@ -61,9 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DrupalNode.cs" />
     <Compile Include="OpenRfa.cs" />
     <Compile Include="ORfaAuth.cs" />
     <Compile Include="SharedParameter.cs" />
+    <Compile Include="User.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
