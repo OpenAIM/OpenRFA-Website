@@ -1,7 +1,19 @@
+2018-09-29 JM:
+- disabled [automatic node titles](https://www.drupal.org/project/auto_nodetitle)
+- created COBie Attribute content type
+- created taxonomy term COBie Sheet and added all terms from [spreadsheet](https://docs.google.com/spreadsheets/d/1ksQhyH6uilCvX40jxQeP6x-1r6Aq8vcAkTmVYsWbEa4/edit#gid=282739480)
+- added  feed importer "COBie Attributes" for bulk importing COBie attributes from CSV
+- imported COBie attributes
+
 2018-09-28 JM:
-- installed restful (https://www.drupal.org/project/restful)
+- configured services module and created REST API endpoint
+- installed [services](https://www.drupal.org/project/services)
+- installed [registry_autoload](https://www.drupal.org/project/registry_autoload)
+- installed [plug](https://www.drupal.org/project/plug)
+- upgraded server to php 5.6 (server-wide)
+- installed [restful](https://www.drupal.org/project/restful)
 - uninstalled restws module due to incompatibility with current Drupal versions
-- installed restws (https://www.drupal.org/project/restws)
+- installed [restws](https://www.drupal.org/project/restws)
 - changed account creation permission to be restricted to admin only to prevent spambots registering and posting
 - deleted all users except administrators
 
