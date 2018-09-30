@@ -4,6 +4,7 @@
 - created taxonomy term COBie Sheet and added all terms from [spreadsheet](https://docs.google.com/spreadsheets/d/1ksQhyH6uilCvX40jxQeP6x-1r6Aq8vcAkTmVYsWbEa4/edit#gid=282739480)
 - added  feed importer "COBie Attributes" for bulk importing COBie attributes from CSV
 - imported COBie attributes
+- added [COBie view](http://dev.openrfa.org/cobie)
 
 2018-09-28 JM:
 - configured services module and created REST API endpoint
