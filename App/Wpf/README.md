@@ -15,29 +15,35 @@ OpenRFA.org is currently built on Drupal 7.x, therefore the [Services](https://w
 
 Note: The API is only currently available on the development server: http://dev.openrfa.org. Please reach out to jmerlan or vdubya for administrator access.
 
-### Endpoints
+### Endpoint Samples
 
-Retrieve CSRF Token
+#### Retrieve CSRF Token
 ```rest/user/token.json```
 
-Log in using OpenRFA.org
+#### Log in using OpenRFA.org
 ```rest/user/login.json```
 
-### Sample Code
+#### Get Shared Parameters
+```rest/views/services_parameters?display_id=view_parameters```
+##### With Pagination
+```rest/views/services_parameters?display_id=view_parameters&limit=5&offset=0```
 
-Request for Drupal Shared Parameter nodes
-```csharp
-            string data = string.Empty;
+#### Fitler Shared Parameter by GUID
+(shared parameter with GUID: 368fac86-6f88-4553-999b-a17e7e822e19)
 
-            var client = new RestClient(OpenRfa.baseUrl);
+```rest/views/services_parameters?display_id=view_parameters&filters[guid]=368fac86-6f88-4553-999b-a17e7e822e19```
 
-            // Set the data format to JSON because default is XML
-            var request = new RestRequest("rest/node?parameters[type]=shared_parameter", Method.GET) { RequestFormat = RestSharp.DataFormat.Json };
+#### Filter Shared Parameters by Name 
+(shared parameters which name contains "code")
 
-            request.AddHeader("X-CSRF-Token", ORfaAuth.currentSession.Token);
-            request.AddHeader("Content-Type", "application/json");
+```rest/views/services_parameters?display_id=view_parameters&filters[name]=code```
 
-            IRestResponse response = client.Execute(request);
+#### Filter Shared Paramters by State
+(shared parameters with Current State: "Approved")
 
-            data = response.Content;
-```
+```rest/views/services_parameters?display_id=view_parameters&filters[state_id]=3```
+
+##### Shared Parameter State IDs
+- (2) Proposed
+- (3) Approved
+- (4) Rejected

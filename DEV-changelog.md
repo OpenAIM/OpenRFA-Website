@@ -1,3 +1,7 @@
+2018-09-30
+- installed [services views](https://www.drupal.org/project/services_views)
+- created view "services-parameters" for API calls
+
 2018-09-29 JM:
 - disabled [automatic node titles](https://www.drupal.org/project/auto_nodetitle)
 - created COBie Attribute content type
