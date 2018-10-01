@@ -17,11 +17,18 @@ Note: The API is only currently available on the development server: http://dev.
 
 ### Endpoints
 
-Retrieve CSRF Token
+#### Retrieve CSRF Token
 ```rest/user/token.json```
 
-Log in using OpenRFA.org
+#### Log in using OpenRFA.org
 ```rest/user/login.json```
+
+#### Get Shared Parameters
+```rest/views/services_parameters?display_id=view_parameters```
+##### With Pagination
+```rest/views/services_parameters?display_id=view_parameters&limit=5&offset=0```
+
+
 
 ### Sample Code
 
