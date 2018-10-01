@@ -18,10 +18,57 @@ Note: The API is only currently available on the development server: http://dev.
 ### Endpoint Samples
 
 #### Retrieve CSRF Token
+##### Endpoint:
 ```rest/user/token.json```
+##### C# Sample Code:
+```csharp
+        public static string GetCsrfToken()
+        {
+            string token = string.Empty;
+
+            // Get CSRF token using RestSharp
+            var client = new RestClient("http://dev.openrfa.org");
+            var request = new RestRequest("rest/user/token.json", Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            IRestResponse response = client.Execute(request);
+
+            // Return token as JSON object
+            token = response.Content;
+
+            return token;
+        }
+```
 
 #### Log in using OpenRFA.org
+##### Endpoint:
 ```rest/user/login.json```
+##### C# Sample Code:
+```csharp
+        public static string LogIn()
+        {
+
+            string json = string.Empty;
+
+            // Login using RestSharp
+            var client = new RestClient("http://dev.openrfa.org");
+
+            // Set the data format to JSON because default is XML
+            var request = new RestRequest("rest/user/login.json", Method.POST) { 
+            	RequestFormat = RestSharp.DataFormat.Json
+            };
+
+            request.AddHeader("X-CSRF-Token", "k1qBSxDlnCOK8jgMnVbBxTn7HtnBABaxh0Bzu7Rre8Y");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddBody(new { username = "MartyMcFly", password = "helloooMcFly!" });
+
+            IRestResponse response = client.Execute(request);
+
+            // Returned user session data is in JSON format
+            json = response.Content;
+
+            return json;
+        }
+```
 
 #### Get Shared Parameters
 ```rest/views/services_parameters?display_id=view_parameters```
