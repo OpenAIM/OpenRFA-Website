@@ -30,14 +30,17 @@ Note: The API is only currently available on the development server: http://dev.
 
 #### Fitler Shared Parameter by GUID
 (shared parameter with GUID: 368fac86-6f88-4553-999b-a17e7e822e19)
+
 ```rest/views/services_parameters?display_id=view_parameters&filters[guid]=368fac86-6f88-4553-999b-a17e7e822e19```
 
 #### Filter Shared Parameters by Name 
 (shared parameters which name contains "code")
+
 ```rest/views/services_parameters?display_id=view_parameters&filters[name]=code```
 
 #### Filter Shared Paramters by State
 (shared parameters with Current State: "Approved")
+
 ```rest/views/services_parameters?display_id=view_parameters&filters[state_id]=3```
 
 ##### Shared Parameter State IDs
