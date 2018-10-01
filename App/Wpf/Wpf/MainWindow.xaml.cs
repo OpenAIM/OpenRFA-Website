@@ -28,10 +28,12 @@ namespace Wpf
         {
             InitializeComponent();
 
-            // Show login form
+            // Startup Visibility
             pnlLogin.Visibility = Visibility.Visible;
+            dockMain.Visibility = Visibility.Hidden;
         }
 
+        // Login Submit Button
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             // CSRF is required for login
@@ -47,6 +49,7 @@ namespace Wpf
             if (ORfaAuth.currentSession.Token.Length > 10)
             {
                 pnlLogin.Visibility = Visibility.Hidden;
+                dockMain.Visibility = Visibility.Visible;
             }
 
             // Temporary retrieval of shared parameters
@@ -60,6 +63,13 @@ namespace Wpf
             txtRawData.Text = RawData;
             //System.Windows.Clipboard.SetText(RawData);
 
+        }
+
+        private void btnInputGuid_Click(object sender, RoutedEventArgs e)
+        {
+
+            // Print shared parameter data to text box
+            txtRawData.Text = SharedParameter.GetParameterByGuid(new Guid(inputGuid.Text));
         }
     }
 }
