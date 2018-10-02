@@ -84,3 +84,27 @@ Note: The API is only currently available on the development server: http://dev.
 - (2) Proposed
 - (3) Approved
 - (4) Rejected
+
+#### Propose a New Share Parameter
+```http://dev.openrfa.org/rest/node```
+
+##### Required fields
+The following fields are required in your `POST` to propose a new shared parameter. Note that you also must be logged in with a user who has permissions to propose a shared parameter.
+- type=shared_parameter
+- title={{NameOfSharedParameter}}
+- field_data_type={{DataTypeId}}
+- field_group={{GroupId}}
+- field_description={{Tooltip}}
+
+**For field_data_type and field_group fields, refer to: http://openrfa.org/documentation/api/term-ids**
+
+Not supplying the required fields will return this error message in JSON
+```json
+{
+    "form_errors": {
+        "field_data_type][und": "Data Type field is required.",
+        "field_group][und": "Group field is required.",
+        "field_description][und][0][value": "Description field is required."
+    }
+}
+```
