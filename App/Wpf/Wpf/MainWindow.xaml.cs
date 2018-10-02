@@ -25,7 +25,7 @@ namespace Wpf
         public static string RawData { get; set; }
 
         public int currentPage { get; set; }
-        public int paramsPerPage = 500;
+        public int paramsPerPage = 100;
 
         public MainWindow()
         {
@@ -33,7 +33,7 @@ namespace Wpf
 
             // Startup Visibility
             pnlLogin.Visibility = Visibility.Visible;
-            dockMain.Visibility = Visibility.Hidden;
+            mainGrid.Visibility = Visibility.Hidden;
         }
 
         // Login Submit Button
@@ -52,7 +52,7 @@ namespace Wpf
             if (ORfaAuth.currentSession.Token.Length > 10)
             {
                 pnlLogin.Visibility = Visibility.Hidden;
-                dockMain.Visibility = Visibility.Visible;
+                mainGrid.Visibility = Visibility.Visible;
             }
 
             //// Temporary retrieval of shared parameters

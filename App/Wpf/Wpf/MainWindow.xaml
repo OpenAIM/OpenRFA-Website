@@ -5,31 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
-        Title="OpenRFA REST Test" Height="450" Width="800"
+        Title="OpenRFA REST Test" Height="492" Width="1290.8"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <CollectionViewSource x:Key="ItemCollectionViewSource" CollectionViewType="ListCollectionView"/>
     </Window.Resources>
     <Grid>
-        <DockPanel x:Name="dockMain" LastChildFill="False" Margin="10,26,9.6,10.2">
-            <StackPanel Height="347" VerticalAlignment="Top" Width="216">
+        <Grid x:Name="mainGrid" Margin="10,10,9.6,10.2">
+            <StackPanel Margin="0,0,0,-10" HorizontalAlignment="Left" Width="231">
                 <TextBox x:Name="inputGuid" TextWrapping="Wrap" Margin="0,0,0,10" Height="23"/>
                 <Button x:Name="btnInputGuid" Content="Search By GUID" Margin="0,0,0,20" Click="btnInputGuid_Click"/>
                 <Button x:Name="btnLoadAll" Content="Load All Parameters" Click="btnLoadAll_Click"/>
                 <TextBlock x:Name="txtSidebar" TextWrapping="Wrap" Padding="5" Margin="0" VerticalAlignment="Top"/>
                 <Button x:Name="btnNext" Content="Next" Height="31" VerticalAlignment="Top" Margin="0,0,141,0" IsEnabled="False" Click="btnNext_Click"/>
             </StackPanel>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Right" Margin="0,0,0,36.2" Width="535" DockPanel.Dock="Right">
-                <DataGrid x:Name="DataGridMain"
+            <DataGrid x:Name="DataGridMain"
                             DataContext="{StaticResource ItemCollectionViewSource}"
                             ItemsSource="{Binding}"
                             AutoGenerateColumns="True"
                           IsReadOnly="True"
                           SelectionUnit="FullRow"
+                    Margin="251,0,10,0"
                     />
-            </ScrollViewer>
-        </DockPanel>
-        <StackPanel x:Name="pnlLogin" Height="205" Width="308" Margin="242,115,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
+        </Grid>
+        <StackPanel x:Name="pnlLogin" Margin="240,115,244.8,141.6" Width="800" Visibility="Hidden">
             <TextBox x:Name="txtUsername" Height="30" Margin="0,0,0,15" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" TabIndex="1" Padding="5"/>
             <PasswordBox x:Name="txtPassword" Height="30" Margin="0,0,0,30" VerticalAlignment="Top" VerticalContentAlignment="Center" TabIndex="2" Padding="5"/>
             <Button x:Name="btnSubmit" Content="Login" Height="33" VerticalAlignment="Top" Click="btnSubmit_Click" TabIndex="3" IsDefault="True" Padding="5"/>
