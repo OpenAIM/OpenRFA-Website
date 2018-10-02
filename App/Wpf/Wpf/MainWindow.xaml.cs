@@ -98,7 +98,14 @@ namespace Wpf
 
         private void DisplayParameterPage(int offset)
         {
-            string json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage);
+            string json = string.Empty;
+
+            if (comboState.SelectedIndex == 0)
+                 json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 3);
+            if (comboState.SelectedIndex == 1)
+                json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 2);
+            if (comboState.SelectedIndex == 2)
+                json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 4);
 
             // Deserialize JSON to list of Shared Parameter objects
             List<SharedParameter> sharedParameters = JsonConvert.DeserializeObject<List<SharedParameter>>(json);

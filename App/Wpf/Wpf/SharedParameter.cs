@@ -20,38 +20,22 @@ namespace Wpf
         public string DataType { get; set; }
         [JsonProperty("node_id")]
         public int NodeId { get; set; }
+        [JsonProperty("state_id")]
+        public int StateId { get; set; }
 
-        //// Deprecated
-        //public static string GetParameters()
-        //{
-        //    string data = string.Empty;
-
-        //    var client = new RestClient(OpenRfa.baseUrl);
-
-        //    // Set the data format to JSON because default is XML
-        //    var request = new RestRequest("rest/node?parameters[type]=shared_parameter", Method.GET) { RequestFormat = RestSharp.DataFormat.Json };
-
-        //    request.AddHeader("X-CSRF-Token", ORfaAuth.currentSession.Token);
-        //    request.AddHeader("Content-Type", "application/json");
-
-        //    IRestResponse response = client.Execute(request);
-
-        //    data = response.Content;
-
-        //    return data;
-        //}
-
-        public static string GetPagedParameters(int limit, int offset)
+        public static string GetPagedParameters(int limit, int offset, int stateId)
         {
             string json = string.Empty;
 
             var client = new RestClient(OpenRfa.baseUrl);
 
+            string requestString = String.Format(
+                "rest/views/services_parameters?display_id=view_parameters&limit={0}&offset={1}&filters[state_id]={2}", 
+                limit, offset, stateId
+                );
+
             // Set the data format to JSON because default is XML
-            var request = new RestRequest(
-                String.Format("rest/views/services_parameters?display_id=view_parameters&limit={0}&offset={1}", limit, offset),
-                Method.GET
-                ) { RequestFormat = RestSharp.DataFormat.Json };
+            var request = new RestRequest(requestString, Method.GET) { RequestFormat = RestSharp.DataFormat.Json };
 
             request.AddHeader("X-CSRF-Token", ORfaAuth.currentSession.Token);
             request.AddHeader("Content-Type", "application/json");
