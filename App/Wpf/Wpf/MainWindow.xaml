@@ -7,16 +7,26 @@
         mc:Ignorable="d"
         Title="OpenRFA REST Test" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
-
+    <Window.Resources>
+        <CollectionViewSource x:Key="ItemCollectionViewSource" CollectionViewType="ListCollectionView"/>
+    </Window.Resources>
     <Grid>
-        <DockPanel x:Name="dockMain" LastChildFill="False" Margin="93,40,105,32">
-            <StackPanel Height="347" VerticalAlignment="Top" Width="175">
+        <DockPanel x:Name="dockMain" LastChildFill="False" Margin="10,26,9.6,10.2">
+            <StackPanel Height="347" VerticalAlignment="Top" Width="216">
                 <TextBox x:Name="inputGuid" TextWrapping="Wrap" Margin="0,0,0,10" Height="23"/>
-                <Button x:Name="btnInputGuid" Content="Search By GUID" Margin="0,0,0,40" Click="btnInputGuid_Click"/>
+                <Button x:Name="btnInputGuid" Content="Search By GUID" Margin="0,0,0,20" Click="btnInputGuid_Click"/>
+                <Button x:Name="btnLoadAll" Content="Load All Parameters" Click="btnLoadAll_Click"/>
                 <TextBlock x:Name="txtSidebar" TextWrapping="Wrap" Padding="5" Margin="0" VerticalAlignment="Top"/>
+                <Button x:Name="btnNext" Content="Next" Height="31" VerticalAlignment="Top" Margin="0,0,141,0" IsEnabled="False" Click="btnNext_Click"/>
             </StackPanel>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Right" Margin="0,0,0,0.2" Width="396" DockPanel.Dock="Right">
-                <TextBlock x:Name="txtRawData" TextWrapping="Wrap" Margin="0,0,0,0" DockPanel.Dock="Right" VerticalAlignment="Top" Padding="5"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Right" Margin="0,0,0,36.2" Width="535" DockPanel.Dock="Right">
+                <DataGrid x:Name="DataGridMain"
+                            DataContext="{StaticResource ItemCollectionViewSource}"
+                            ItemsSource="{Binding}"
+                            AutoGenerateColumns="True"
+                          IsReadOnly="True"
+                          SelectionUnit="FullRow"
+                    />
             </ScrollViewer>
         </DockPanel>
         <StackPanel x:Name="pnlLogin" Height="205" Width="308" Margin="242,115,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">

@@ -87,13 +87,6 @@ namespace Wpf
 
             currentSession = JsonConvert.DeserializeObject<Session>(json);
 
-            // TEMP: Show session data
-            //MessageBox.Show(currentSession.Token, "Current Session Token");
-            //MessageBox.Show(json, "Session Data");
-
-            //// Copy raw session data to clipboard
-            //Clipboard.SetText(json);
-
             return json;
         }
     }

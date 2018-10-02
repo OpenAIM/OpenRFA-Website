@@ -24,6 +24,9 @@ namespace Wpf
         // Temporary field for storing data
         public static string RawData { get; set; }
 
+        public int currentPage { get; set; }
+        public int paramsPerPage = 500;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -52,24 +55,64 @@ namespace Wpf
                 dockMain.Visibility = Visibility.Visible;
             }
 
-            // Temporary retrieval of shared parameters
-            SharedParameter.GetParameters();
+            //// Temporary retrieval of shared parameters
+            //txtRawData.Text = SharedParameter.GetParameters();
 
             // Display current session data in sidebar
             txtSidebar.Text = "Welcome, " + ORfaAuth.currentSession.User.Name + "!";
             txtSidebar.Text += "\n" + ORfaAuth.currentSession.User.Mail;
-
-            // Display raw data in text box as indented JSON
-            txtRawData.Text = RawData;
-            //System.Windows.Clipboard.SetText(RawData);
-
         }
 
         private void btnInputGuid_Click(object sender, RoutedEventArgs e)
         {
+            string json = SharedParameter.GetParameterByGuid(new Guid(inputGuid.Text));
 
-            // Print shared parameter data to text box
-            txtRawData.Text = SharedParameter.GetParameterByGuid(new Guid(inputGuid.Text));
+            // Deserialize JSON to list of Shared Parameter objects
+            List<SharedParameter> sharedParameters = JsonConvert.DeserializeObject<List<SharedParameter>>(json);
+
+            DisplayObjectsInDataGrid(sharedParameters);
         }
+
+        private void btnLoadAll_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayParameterPage(0);
+        }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            // Go to next page
+            currentPage += paramsPerPage;
+
+            DisplayParameterPage(currentPage);
+        }
+
+        private void DisplayParameterPage(int offset)
+        {
+            string json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage);
+
+            // Deserialize JSON to list of Shared Parameter objects
+            List<SharedParameter> sharedParameters = JsonConvert.DeserializeObject<List<SharedParameter>>(json);
+
+            DisplayObjectsInDataGrid(sharedParameters);
+
+            // Enable next button if there are more items
+            if (sharedParameters.Count == paramsPerPage)
+                btnNext.IsEnabled = true;
+            else
+                btnNext.IsEnabled = false;
+        }
+
+
+        /// <summary>
+        /// Displays a list of objects in the MainDataGrid
+        /// </summary>
+        /// <param name="list">A list of objects to display in the data grid</param>
+        private void DisplayObjectsInDataGrid (List<SharedParameter> list)
+        {
+            CollectionViewSource itemCollectionViewSource;
+            itemCollectionViewSource = (CollectionViewSource)(FindResource("ItemCollectionViewSource"));
+            itemCollectionViewSource.Source = list;
+        }
+
     }
 }
