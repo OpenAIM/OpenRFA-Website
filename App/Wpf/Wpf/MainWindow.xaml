@@ -17,7 +17,10 @@
                 <Button x:Name="btnInputGuid" Content="Search By GUID" Margin="0,0,0,20" Click="btnInputGuid_Click"/>
                 <Button x:Name="btnLoadAll" Content="Load All Parameters" Click="btnLoadAll_Click"/>
                 <TextBlock x:Name="txtSidebar" TextWrapping="Wrap" Padding="5" Margin="0" VerticalAlignment="Top"/>
-                <Button x:Name="btnNext" Content="Next" Height="31" VerticalAlignment="Top" Margin="0,0,141,0" IsEnabled="False" Click="btnNext_Click"/>
+                <DockPanel Height="33" LastChildFill="False" Margin="0,0,0.2,0">
+                    <Button x:Name="btnPrevious" Content="Previous" Height="31" VerticalAlignment="Top" IsEnabled="False" Width="115" Click="btnPrevious_Click"/>
+                    <Button x:Name="btnNext" Content="Next" Height="31" VerticalAlignment="Top" IsEnabled="False" Click="btnNext_Click" Width="115"/>
+                </DockPanel>
             </StackPanel>
             <DataGrid x:Name="DataGridMain"
                             DataContext="{StaticResource ItemCollectionViewSource}"

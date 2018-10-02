@@ -84,6 +84,16 @@ namespace Wpf
             currentPage += paramsPerPage;
 
             DisplayParameterPage(currentPage);
+
+            btnPrevious.IsEnabled = true;
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            // Go to previous page
+            currentPage -= paramsPerPage;
+
+            DisplayParameterPage(currentPage);
         }
 
         private void DisplayParameterPage(int offset)
@@ -100,6 +110,12 @@ namespace Wpf
                 btnNext.IsEnabled = true;
             else
                 btnNext.IsEnabled = false;
+
+            // Enable previous button if there are previous items
+            if (currentPage > paramsPerPage)
+                btnPrevious.IsEnabled = true;
+            else
+                btnPrevious.IsEnabled = false;
         }
 
 
