@@ -65,7 +65,7 @@ Note: The API is only currently available on the development server: http://dev.
 ##### With Pagination
 ```rest/views/services_parameters?display_id=view_parameters&limit=5&offset=0```
 
-#### Fitler Shared Parameter by GUID
+#### Filter Shared Parameter by GUID
 (shared parameter with GUID: 368fac86-6f88-4553-999b-a17e7e822e19)
 
 ```rest/views/services_parameters?display_id=view_parameters&filters[guid]=368fac86-6f88-4553-999b-a17e7e822e19```
@@ -98,7 +98,7 @@ The following fields are required in your `POST` to propose a new shared paramet
 
 **For field_data_type and field_group fields, refer to: http://openrfa.org/documentation/api/term-ids**
 
-Not supplying the required fields will return this error message in JSON
+Not supplying the required fields will return this error message in JSON: 
 ```json
 {
     "form_errors": {
