@@ -101,7 +101,7 @@ namespace Wpf
             string json = string.Empty;
 
             if (comboState.SelectedIndex == 0)
-                 json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 3);
+                json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 3);
             if (comboState.SelectedIndex == 1)
                 json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 2);
             if (comboState.SelectedIndex == 2)
@@ -130,12 +130,28 @@ namespace Wpf
         /// Displays a list of objects in the MainDataGrid
         /// </summary>
         /// <param name="list">A list of objects to display in the data grid</param>
-        private void DisplayObjectsInDataGrid (List<SharedParameter> list)
+        private void DisplayObjectsInDataGrid(List<SharedParameter> list)
         {
             CollectionViewSource itemCollectionViewSource;
             itemCollectionViewSource = (CollectionViewSource)(FindResource("ItemCollectionViewSource"));
             itemCollectionViewSource.Source = list;
         }
 
+        // Open a web page when parameter is double-clicked
+        private void DataGridMain_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (sender != null)
+            {
+                DataGrid grid = sender as DataGrid;
+                if (grid != null && grid.SelectedItems != null && grid.SelectedItems.Count == 1)
+                {
+                    DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
+
+                    SharedParameter selectedParam = dgr.Item as SharedParameter;
+
+                    System.Diagnostics.Process.Start(OpenRfa.baseUrl + selectedParam.Guid);
+                }
+            }
+        }
     }
 }

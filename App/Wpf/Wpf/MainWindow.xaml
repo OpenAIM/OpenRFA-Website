@@ -30,7 +30,7 @@
                             AutoGenerateColumns="True"
                           IsReadOnly="True"
                           SelectionUnit="FullRow"
-                    Margin="0,0,0,10" RenderTransformOrigin="0.5,0.5" Height="620"
+                    Margin="0,0,0,10" RenderTransformOrigin="0.5,0.5" Height="620" MouseDoubleClick="DataGridMain_MouseDoubleClick"
                     />
                 <Button x:Name="btnPrevious" Content="Previous" Height="31" VerticalAlignment="Bottom" IsEnabled="False" Click="btnPrevious_Click" Margin="0,0,885,0" HorizontalAlignment="Left" Width="100"/>
                 <Button x:Name="btnNext" Content="Next" Height="31" VerticalAlignment="Bottom" IsEnabled="False" Click="btnNext_Click" Margin="0,-31,0,0" HorizontalAlignment="Right" Width="100"/>
