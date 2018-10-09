@@ -52,27 +52,6 @@ namespace Wpf
             return token;
         }
         
-        public static string Connect()
-        {
-            string json = string.Empty;
-
-            var client = new RestClient(OpenRfa.baseUrl);
-
-            // Set the data format to JSON because default is XML
-            var request = new RestRequest("rest/system/connect.json", Method.POST) { RequestFormat = RestSharp.DataFormat.Json };
-
-            request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("X-CSRF-Token", MainWindow.CsrfToken.Token);
-
-            IRestResponse response = client.Execute(request);
-
-            MainWindow.Session = JsonConvert.DeserializeObject<Session>(response.Content);
-
-            json = response.Content;
-
-            return json;
-        }
-
         /// <summary>
         /// Log in using OpenRFA.org user credentials
         /// </summary>

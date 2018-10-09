@@ -157,11 +157,8 @@ namespace Wpf
 
         private void btnNewParam_Click(object sender, RoutedEventArgs e)
         {
-
-            // TODO: Fix this hardcoded shared parameter
-            string newSharedParameterResponse = SharedParameter.NewParameter(Session, "ThirdTestFromAPI", 185, 364, "Another test parameter using the REST API");
-
-            MessageBox.Show(newSharedParameterResponse, "New Shared Parameter");
+            NewParameterWindow newParameterWindow = new NewParameterWindow();
+            newParameterWindow.Show();
         }
     }
 }

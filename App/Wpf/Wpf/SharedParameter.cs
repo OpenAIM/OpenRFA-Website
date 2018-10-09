@@ -80,6 +80,15 @@ namespace Wpf
             return data;
         }
 
+        /// <summary>
+        /// Creates a new shared parameter on OpenRFA.org
+        /// </summary>
+        /// <param name="session">The current session to use for the token and cookie.</param>
+        /// <param name="name">The name of the shared parameter.</param>
+        /// <param name="dataTypeId">The ID of the data type (refer to http://openrfa.org/documentation/api/term-ids)</param>
+        /// <param name="groupId">The ID of the group (refer to http://openrfa.org/documentation/api/term-ids)</param>
+        /// <param name="description">The description (tooltip) for the shared parameter.</param>
+        /// <returns></returns>
         public static string NewParameter (Session session, string name, int dataTypeId, int groupId, string description)
         {
             // TODO: Create proper C# object and serialize JSON
@@ -90,7 +99,7 @@ namespace Wpf
             //newParameter.Description = description;
 
             var client = new RestClient("http://dev.openrfa.org/rest/node.json");
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest(Method.POST) { RequestFormat = RestSharp.DataFormat.Json };
             request.AddHeader("X-CSRF-Token", session.Token);
             request.AddHeader("Content-Type", "application/json");
             request.AddCookie(session.Name, session.Id);
