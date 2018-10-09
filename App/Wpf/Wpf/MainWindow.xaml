@@ -21,6 +21,7 @@
                     <ListBoxItem>Rejected</ListBoxItem>
                 </ComboBox>
                 <Button x:Name="btnLoadAll" Content="Load Parameters" Click="btnLoadAll_Click" Margin="0,0,0,20"/>
+                <Button x:Name="btnNewParam" Content="New Shared Parameter" Margin="0" Click="btnNewParam_Click"/>
                 <TextBlock x:Name="txtSidebar" TextWrapping="Wrap" Padding="5" Margin="0" VerticalAlignment="Bottom"/>
             </StackPanel>
             <StackPanel Margin="0,0,0.2,-0.2" HorizontalAlignment="Right" Width="1000">

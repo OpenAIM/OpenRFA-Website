@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace Wpf
 {
-    class CsrfToken
+    public class CsrfToken
     {
         public string Token { get; set; }
     }
@@ -33,17 +33,12 @@ namespace Wpf
 
     class ORfaAuth
     {
-        public static CsrfToken csrfToken = new CsrfToken();
-        public static Session currentSession = new Session();
-        public static string userName = string.Empty;
-        public static string userPassword = string.Empty;
-
         /// <summary>
         /// Retrieves a CSRF token which is required to log in.
         /// </summary>
-        public static void GetCsrfToken()
+        public static CsrfToken GetCsrfToken()
         {
-            string token = string.Empty;
+            CsrfToken token = new CsrfToken();
 
             // Get CSRF token using RestSharp
             var client = new RestClient(OpenRfa.baseUrl);
@@ -51,33 +46,49 @@ namespace Wpf
             request.AddHeader("Content-Type", "application/json");
             IRestResponse response = client.Execute(request);
 
-            // Return token as string
-            string json = response.Content;
+            // Pass token to MainWindow
+            MainWindow.CsrfToken = JsonConvert.DeserializeObject<CsrfToken>(response.Content);
 
-            csrfToken = JsonConvert.DeserializeObject<CsrfToken>(json);
+            return token;
         }
         
+        public static string Connect()
+        {
+            string json = string.Empty;
+
+            var client = new RestClient(OpenRfa.baseUrl);
+
+            // Set the data format to JSON because default is XML
+            var request = new RestRequest("rest/system/connect.json", Method.POST) { RequestFormat = RestSharp.DataFormat.Json };
+
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("X-CSRF-Token", MainWindow.CsrfToken.Token);
+
+            IRestResponse response = client.Execute(request);
+
+            MainWindow.Session = JsonConvert.DeserializeObject<Session>(response.Content);
+
+            json = response.Content;
+
+            return json;
+        }
+
         /// <summary>
         /// Log in using OpenRFA.org user credentials
         /// </summary>
         /// <returns>Data for current logged in session in JSON format.</returns>
-        public static string LogIn()
+        public static string LogIn(string userName, string userPassword)
         {
-
             string json = string.Empty;
 
-            //// NOOB: This might be the secure way to login
-            //RestClient restClient = new RestClient(OpenRfa.baseUrl)
-            //{
-            //    Authenticator = new HttpBasicAuthenticator(userName, password)
-            //};
+            GetCsrfToken();
 
             var client = new RestClient(OpenRfa.baseUrl);
 
             // Set the data format to JSON because default is XML
             var request = new RestRequest("rest/user/login.json", Method.POST) { RequestFormat = RestSharp.DataFormat.Json };
 
-            request.AddHeader("X-CSRF-Token", csrfToken.Token);
+            request.AddHeader("X-CSRF-Token", MainWindow.CsrfToken.Token);
             request.AddHeader("Content-Type", "application/json");
             request.AddBody(new { username = userName, password = userPassword });
 
@@ -85,9 +96,11 @@ namespace Wpf
 
             json = response.Content;
 
-            currentSession = JsonConvert.DeserializeObject<Session>(json);
+            // Pass session data to MainWindow
+            MainWindow.Session = JsonConvert.DeserializeObject<Session>(response.Content);
 
             return json;
         }
+
     }
 }

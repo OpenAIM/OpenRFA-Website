@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
+using RestSharp;
 
 namespace Wpf
 {
@@ -21,51 +22,51 @@ namespace Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        // Temporary field for storing data
-        public static string RawData { get; set; }
-
+        // Pagination settings
         public int currentPage { get; set; }
         public int paramsPerPage = 100;
+
+        // Authentication
+        public static Session Session = new Session();
+        public static CsrfToken CsrfToken = new CsrfToken();
+
+        public string userName = string.Empty;
+        public string userPassword = string.Empty;
+
 
         public MainWindow()
         {
             InitializeComponent();
 
+
             // Startup Visibility
             pnlLogin.Visibility = Visibility.Visible;
             mainGrid.Visibility = Visibility.Hidden;
+
         }
 
         // Login Submit Button
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            // CSRF is required for login
-            ORfaAuth.GetCsrfToken();
-
-            ORfaAuth.userName = txtUsername.Text;
-            ORfaAuth.userPassword = txtPassword.Password;
-
-            ORfaAuth.LogIn();
+            // Get credentials from text boxes
+            ORfaAuth.LogIn(txtUsername.Text, txtPassword.Password);
 
             // Hide login form if session is successful.
             // NOOB: There is definitely a better way to do this
-            if (ORfaAuth.currentSession.Token.Length > 10)
+            if (MainWindow.CsrfToken.Token.Length > 10)
             {
                 pnlLogin.Visibility = Visibility.Hidden;
                 mainGrid.Visibility = Visibility.Visible;
             }
 
-            //// Temporary retrieval of shared parameters
-            //txtRawData.Text = SharedParameter.GetParameters();
-
             // Display current session data in sidebar
-            txtSidebar.Text = "Welcome, " + ORfaAuth.currentSession.User.Name + "!";
-            txtSidebar.Text += "\n" + ORfaAuth.currentSession.User.Mail;
+            txtSidebar.Text = "Welcome, " + Session.User.Name + "!";
+            txtSidebar.Text += "\n" + Session.User.Mail;
         }
 
         private void btnInputGuid_Click(object sender, RoutedEventArgs e)
         {
-            string json = SharedParameter.GetParameterByGuid(new Guid(inputGuid.Text));
+            string json = SharedParameter.GetParameterByGuid(new Guid(inputGuid.Text), Session.Token);
 
             // Deserialize JSON to list of Shared Parameter objects
             List<SharedParameter> sharedParameters = JsonConvert.DeserializeObject<List<SharedParameter>>(json);
@@ -101,11 +102,11 @@ namespace Wpf
             string json = string.Empty;
 
             if (comboState.SelectedIndex == 0)
-                json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 3);
+                json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 3, Session.Token);
             if (comboState.SelectedIndex == 1)
-                json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 2);
+                json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 2, Session.Token);
             if (comboState.SelectedIndex == 2)
-                json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 4);
+                json = SharedParameter.GetPagedParameters(paramsPerPage, currentPage, 4, Session.Token);
 
             // Deserialize JSON to list of Shared Parameter objects
             List<SharedParameter> sharedParameters = JsonConvert.DeserializeObject<List<SharedParameter>>(json);
@@ -152,6 +153,15 @@ namespace Wpf
                     System.Diagnostics.Process.Start(OpenRfa.baseUrl + selectedParam.Guid);
                 }
             }
+        }
+
+        private void btnNewParam_Click(object sender, RoutedEventArgs e)
+        {
+
+            // TODO: Fix this hardcoded shared parameter
+            string newSharedParameterResponse = SharedParameter.NewParameter(Session, "ThirdTestFromAPI", 185, 364, "Another test parameter using the REST API");
+
+            MessageBox.Show(newSharedParameterResponse, "New Shared Parameter");
         }
     }
 }

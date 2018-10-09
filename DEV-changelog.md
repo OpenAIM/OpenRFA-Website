@@ -1,3 +1,6 @@
+2018-10-07
+- installed [oauth](https://www.drupal.org/project/oauth)
+
 2018-09-30
 - installed [services views](https://www.drupal.org/project/services_views)
 - created view "services-parameters" for API calls
