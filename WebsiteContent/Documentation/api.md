@@ -11,7 +11,6 @@ The API is only currently available on the development server: http://dev.openrf
 #### Method
 ```POST```
 #### Endpoint
-```Method: GET```
 ```rest/user/token.json```
 #### C# Sample Code
 ```csharp
