@@ -1,3 +1,7 @@
+2018-10-10
+- Installed [OneAll Social Login](https://www.drupal.org/project/social_login)
+
+
 2018-10-07
 - installed [oauth](https://www.drupal.org/project/oauth)
 
