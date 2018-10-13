@@ -1,6 +1,18 @@
+2018-10-12
+- Installed [OAuth2 Server](https://www.drupal.org/project/oauth2_server)
+- Installed [X Autoload](https://www.drupal.org/project/xautoload)
+- Added library to Drupal [oauth2-server-php](https://github.com/bshaffer/oauth2-server-php/tree/master/src/OAuth2)
+- Created [OAuth Server](http://dev.openrfa.org/admin/structure/oauth2-servers)
+- Add ["basic" Scope](http://dev.openrfa.org/admin/structure/oauth2-servers/manage/main/scopes)
+- Added ["rocketchat" Client](http://dev.openrfa.org/admin/structure/oauth2-servers/manage/main/clients)
+- Permissions: Allowed anonymouse user to use OAuth 2
+
+
+2018-10-11
+- Installed [Rocket.Chat](https://www.drupal.org/project/rocket_chat)
+
 2018-10-10
 - Installed [OneAll Social Login](https://www.drupal.org/project/social_login)
-
 
 2018-10-07
 - installed [oauth](https://www.drupal.org/project/oauth)
