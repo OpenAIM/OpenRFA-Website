@@ -1,3 +1,7 @@
+2018-10-13
+- Installed [rules_http_client](https://www.drupal.org/project/rules_http_client)
+- Created rule "New Parameter" which executes PHP rule
+
 2018-10-12
 - Installed [OAuth2 Server](https://www.drupal.org/project/oauth2_server)
 - Installed [X Autoload](https://www.drupal.org/project/xautoload)
