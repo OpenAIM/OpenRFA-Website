@@ -1,3 +1,6 @@
+2018-10-14
+- Modified existing rule to include the cURL post to Zulip because having a separate rule wasn't passing the GUID properly.
+
 2018-10-13
 - Installed [rules_http_client](https://www.drupal.org/project/rules_http_client)
 - Created rule "New Parameter" which executes PHP rule

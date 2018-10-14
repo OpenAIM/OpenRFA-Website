@@ -19,9 +19,9 @@ curl_setopt_array($curl, array(
     CURLOPT_POST => 1,
     CURLOPT_POSTFIELDS => array(
         type => 'stream',
-        to => 'OpenRFA',
-        subject => 'New Shared Parameter',
-        content => '[node:author:name] has proposed a parameter called "[node:title]": [node:url]',
+        to => 'DataDefinitions',
+        subject => '[node:field_guid]',
+        content => '[node:author:name] has proposed a parameter: [node:title] ([node:url])',
     )
 ));
 
