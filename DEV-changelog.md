@@ -12,7 +12,7 @@
 - Created [OAuth Server](http://dev.openrfa.org/admin/structure/oauth2-servers)
 - Add ["basic" Scope](http://dev.openrfa.org/admin/structure/oauth2-servers/manage/main/scopes)
 - Added ["rocketchat" Client](http://dev.openrfa.org/admin/structure/oauth2-servers/manage/main/clients)
-- Permissions: Allowed anonymouse user to use OAuth 2
+- Permissions: Allowed anonymous user to use OAuth 2
 
 
 2018-10-11
