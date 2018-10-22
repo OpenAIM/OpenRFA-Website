@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
-        Title="OpenRFA REST Test" Height="450" Width="800"
+        Title="OpenRFA REST Test App" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     
     <Grid>
-        <DockPanel LastChildFill="False" Margin="93,40,105,32">
+        <!-- <DockPanel LastChildFill="False" Margin="93,40,105,32"> -->
+<!-- LastChildFill="False" is default; verify -->
+        <DockPanel Margin="93,40,105,32">
             <TextBlock x:Name="txtSidebar" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Padding="5"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <TextBlock x:Name="txtRawData" TextWrapping="Wrap" Margin="0,0,0,0" HorizontalAlignment="Right" Width="410" DockPanel.Dock="Right" VerticalAlignment="Top" Padding="5"/>
