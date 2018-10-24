@@ -1,4 +1,0 @@
-[console_scripts]
-zulip-run-bot = zulip_bots.run:main
-zulip-terminal = zulip_bots.terminal:main
-
