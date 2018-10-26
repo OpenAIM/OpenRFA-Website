@@ -1,0 +1,47 @@
+<Window x:Class="Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf"
+        mc:Ignorable="d"
+        Title="OpenRFA REST Test" Height="718.8" Width="1290.8"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <CollectionViewSource x:Key="ItemCollectionViewSource" CollectionViewType="ListCollectionView"/>
+    </Window.Resources>
+    <Grid Margin="0,0,-0.2,-0.4">
+        <Grid x:Name="mainGrid" Margin="10,10,9.6,10.2">
+            <StackPanel Margin="0,0,0,-10" HorizontalAlignment="Left" Width="231">
+                <TextBox x:Name="inputGuid" TextWrapping="Wrap" Margin="0,0,0,10" Height="23"/>
+                <Button x:Name="btnInputGuid" Content="Search By GUID" Margin="0,0,0,20" Click="btnInputGuid_Click"/>
+                <ComboBox x:Name="comboState" Margin="0,0,0,10" SelectedIndex="0">
+                    <ListBoxItem>Approved</ListBoxItem>
+                    <ListBoxItem>Proposed</ListBoxItem>
+                    <ListBoxItem>Rejected</ListBoxItem>
+                </ComboBox>
+                <Button x:Name="btnLoadAll" Content="Load Parameters" Click="btnLoadAll_Click" Margin="0,0,0,20"/>
+                <Button x:Name="btnNewParam" Content="New Shared Parameter" Margin="0" Click="btnNewParam_Click"/>
+                <TextBlock x:Name="txtSidebar" TextWrapping="Wrap" Padding="5" Margin="0" VerticalAlignment="Bottom"/>
+            </StackPanel>
+            <StackPanel Margin="0,0,0.2,-0.2" HorizontalAlignment="Right" Width="1000">
+                <DataGrid x:Name="DataGridMain"
+                            DataContext="{StaticResource ItemCollectionViewSource}"
+                            ItemsSource="{Binding}"
+                            AutoGenerateColumns="True"
+                          IsReadOnly="True"
+                          SelectionUnit="FullRow"
+                    Margin="0,0,0,10" RenderTransformOrigin="0.5,0.5" Height="620" MouseDoubleClick="DataGridMain_MouseDoubleClick"
+                    />
+                <Button x:Name="btnPrevious" Content="Previous" Height="31" VerticalAlignment="Bottom" IsEnabled="False" Click="btnPrevious_Click" Margin="0,0,885,0" HorizontalAlignment="Left" Width="100"/>
+                <Button x:Name="btnNext" Content="Next" Height="31" VerticalAlignment="Bottom" IsEnabled="False" Click="btnNext_Click" Margin="0,-31,0,0" HorizontalAlignment="Right" Width="100"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel x:Name="pnlLogin" Margin="513,242,484.2,283.4" Visibility="Hidden">
+            <TextBox x:Name="txtUsername" Height="30" Margin="5,0,5,15" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" TabIndex="1" Padding="5"/>
+            <PasswordBox x:Name="txtPassword" Height="30" Margin="5,0,5,30" VerticalAlignment="Top" VerticalContentAlignment="Center" TabIndex="2" Padding="5"/>
+            <Button x:Name="btnSubmit" Content="Login" Height="33" VerticalAlignment="Top" Click="btnSubmit_Click" TabIndex="3" IsDefault="True" Padding="5" Margin="5,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
+
