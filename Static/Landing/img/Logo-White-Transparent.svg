@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 798 275" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Artboard1" transform="matrix(0.878674,0,0,0.707746,-281.354,-99.6579)">
+        <rect x="320.203" y="140.81" width="907.063" height="388.253" style="fill:none;"/>
+        <g transform="matrix(5.22388,0,0,16.0058,-230.71,-5.35277)">
+            <g transform="matrix(2.70994,0,0,1.09806,-205.521,-87.2297)">
+                <text x="137.699px" y="102.97px" style="font-family:'Poppins-Regular', 'Poppins';font-size:12px;fill:none;">p<tspan x="145.139px 151.871px " y="102.97px 102.97px ">en</tspan></text>
+                <text x="158.807px" y="102.97px" style="font-family:'Poppins-Regular', 'Poppins';font-size:12px;fill:none;">R</text>
+                <text x="165.611px" y="102.97px" style="font-family:'Poppins-Regular', 'Poppins';font-size:12px;fill:none;">F</text>
+                <text x="169.691px" y="102.97px" style="font-family:'Poppins-Regular', 'Poppins';font-size:12px;fill:none;">A</text>
+                <text x="137.699px" y="102.97px" style="font-family:'Poppins-Regular', 'Poppins';font-size:12px;fill:white;">p<tspan x="145.139px 151.871px " y="102.97px 102.97px ">en</tspan></text>
+                <text x="158.807px" y="102.97px" style="font-family:'Poppins-Regular', 'Poppins';font-size:12px;fill:white;">R</text>
+                <text x="165.611px" y="102.97px" style="font-family:'Poppins-Regular', 'Poppins';font-size:12px;fill:white;">F</text>
+                <text x="169.691px" y="102.97px" style="font-family:'Poppins-Regular', 'Poppins';font-size:12px;fill:white;">A</text>
+            </g>
+            <g transform="matrix(0.217861,0,0,0.0882767,35.7007,-4.74654)">
+                <path d="M337.891,355.879C351.19,382.41 372.867,404.026 399.441,417.249L337.891,417.249L337.891,355.879ZM582.904,417.249L521.032,417.249C547.822,403.918 569.634,382.059 582.904,355.233L582.904,417.249ZM460.236,223.007C499.817,223.007 531.952,255.141 531.952,294.722C531.952,334.303 499.817,366.438 460.236,366.438C420.656,366.438 388.521,334.303 388.521,294.722C388.521,255.141 420.656,223.007 460.236,223.007ZM520.687,172.025L582.904,172.025L582.904,234.211C569.577,207.271 547.635,185.339 520.687,172.025ZM399.786,172.025C373.054,185.232 351.247,206.92 337.891,233.565L337.891,172.025L399.786,172.025Z" style="fill:white;"/>
+            </g>
+        </g>
+    </g>
+</svg>
