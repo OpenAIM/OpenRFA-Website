@@ -4,7 +4,7 @@
 
 Parameters have three states: Proposed, Approved, and Rejected. This section of the documentation describes each state. Refer to the flow chart below for the process of proposing, approving, and rejecting parameters.
 
- ![Shared parameter life cycle flow chart](https://raw.githubusercontent.com/OpenDBO/OpenRFA/master/WebsiteContent/Documentation/Assets/LifeCycleofaParameter.png "Shared parameter life cycle flow chart")
+ ![Shared parameter life cycle flow chart](https://raw.githubusercontent.com/OpenAIM/OpenRFA-Website/master/Static/Documentation/Assets/LifeCycleofaParameter.png "Shared parameter life cycle flow chart")
 
 ## Proposed
 
