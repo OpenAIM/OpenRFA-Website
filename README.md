@@ -7,7 +7,8 @@ We may be using the "I" in BIM, but are we using it correctly?
 
 ## Sharing Shared Parameters
 
-![alt text](http://openrfa.org/sites/default/files/Communicating%20in%20the%20cloud%20with%20Revit%20data.png "Using the same master shared parameters for Revit in the cloud (collaboration for Revit, C4R)")
+![alt text](http://openrfa.org/sites/default/files/Communicating%20in%20the%20cloud%20with%20Revit%20data.png "Using the same master shared parameters for Revit in the cloud (collaboration for Revit, C4R)[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FOpenAIM%2FOpenRFA-Website.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FOpenAIM%2FOpenRFA-Website?ref=badge_shield)
+")
 
 In today’s building industry, the adoption of Building Information Modeling (BIM) has increased exponentially. The “I” in BIM, however, is only being leveraged by the most experienced and innovative project teams. Even within those teams, data within a BIM model is not standardized which makes it difficult to transfer this valuable information to and from external organizations.
 
@@ -24,3 +25,7 @@ All contributors have the ability to propose new parameters and discuss changes 
 If you are interested in contributing to the shared parameters, [register as a contributor](http://openrfa.org/user/register) and start proposing suggestions immediately. As a community, all changes to the shared parameters are reviewed by other experts in the industry who can help vet contributor suggestions.
 
 If you would like apply to become an OpenRFA moderator, [send us a message](http://openrfa.org/contact).
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FOpenAIM%2FOpenRFA-Website.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FOpenAIM%2FOpenRFA-Website?ref=badge_large)
